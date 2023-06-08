@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scale=1.0">
+    <meta charset="utf-8">
+    <link href="css/login-style.css" rel="stylesheet">
+    <title>Gamelink</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-top">
+            <img class="tiny-logo" align="left" src="img/tinylogo.png">
+            <div class="nav-text">
+                <a class="menu-text" href="">SAIBA MAIS</a>
+                <a class="menu-text" href="">SOBRE NÓS</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="register_container">
+        <div class="register_content">
+            <form action="/registerUser" method="post">
+                    <h2>PREENCHA SEUS DADOS</h2>
+                <div class="register_group">
+                    <p>Insira sua foto de perfil</p>
+                    <input type="file" name="profile_pic" accept="image/*">
+                </div>
+                    
+                <div class="register_group">
+                    <p>Insira seu nome</p>
+                    <input name="first_name" required>
+                    <p>Insira seu sobrenome</p>
+                    <input name="last_name" required>
+                </div>
+                <div class="register_group">
+                    <p>Insira seu nickname</p>
+                    <input name="nickname" required>
+                    <p>Insira sua data de nascimento</p>
+                    <input name="birthday" type="date"  required>
+                </div>
+                <div class="register_group"  required>
+                    <p>Insira seu email</p>
+                    <input name="email">
+                    <p>Insira sua senha</p>
+                    <input  name="password" required>
+                </div>
+                    <a href="/"><button class="popup-login" type="login">REGISTRAR-SE</button></a>
+                 
+            </form>
+            <a href="/"><button class="popup-login" type="login">RETORNAR</button></a>
+
+        </div>
+    </div>
+
+
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup")
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup")
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family: "Poppins" , sans-serif;
+}
+
+body {
+    background: rgb(45, 45, 45);
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: visible;
+}
+
+
+.big_logo {
+    max-width: 100%;
+    visibility: hidden;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background: rgba(77,77,255,1);
+    transition: all 0.5s ease;
+    z-index: 1;
+    transition: 0.5s;
+    overflow-x: hidden;
+}
+
+.sidebar .logo_details .logo {
+    padding: 10px;
+    display: flex;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    margin-top: 40px;
+}
+
+
+.sidebar ul {
+    margin-top: 60px;
+    margin-left: -20px;
+}
+
+.sidebar ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    margin-top: 10px;
+    line-height: 55px;
+}
+
+.sidebar ul li i{
+    height: 50px;
+    min-width: 80px;
+    font-size: 28px;
+    text-align: center;
+
+}
+
+.sidebar:hover {
+    width: 300px;
+}
+
+.sidebar:hover input {
+    visibility: visible;
+}
+
+.sidebar:hover .big_logo {
+    visibility: visible;
+}
+
+.sidebar:hover #log_out {
+    visibility: visible;
+}
+
+.sidebar a:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+.sidebar ul li input{
+    visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 90%;
+    left: 0;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background: rgb(44, 44, 152);
+    padding-left: 58px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white;
+}
+
+
+.sidebar ul li .fi-rr-search{
+    margin-top: 10px;
+    z-index: 99;
+    color: white;
+}
+
+.sidebar ul li .fi-rr-angle-small-right {
+    font-size: 20px;
+    transform: translateX(-30%);
+}
+
+.sidebar .profile_content {
+    position: absolute;
+    background: rgb(44, 44, 152);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.sidebar .profile_content .profile {
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    color: white;
+}
+
+.profile_content .profile .profile_details {
+    display: flex;
+    align-items: center;
+} 
+
+.profile .profile_details img {
+    height: 35px;
+    width: 35px;
+    border-radius: 12px;
+    background: red;
+}
+
+.profile .profile_details .name_grid {
+    margin-left: 10px;
+}
+
+.profile .profile_details .name {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.profile .profile_details .nickname {
+    font-size: 10px;
+    font-style:italic;
+}
+
+.profile #log_out {
+    visibility: hidden;
+    position: absolute;
+    left: 88%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.convocation_content {
+    position: fixed;
+    background: rgb(255, 255, 255);
+    left: 77%;
+    top: 15%;
+    height: 40%;
+    width: 15%;
+    overflow: visible;
+    border-radius: 10px;
+}
+
+.convocation_content th a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: all 0.4s ease;
+}
+
+.convocation_content th a:hover{
+    color: rgb(132, 0, 255);
+    background: rgb(0, 47, 255);
+}
+
+.convocation_content td{
+    color: white;
+    padding-left: 10px;
+    height: 20%;
+    background: rgb(44, 44, 152);
+    border-radius: 10px;
+}
+
+.convocation_details {
+    display: flex;
+    align-items: center;
+}
+
+.convocation_content img {
+    width: 45px;
+}
+
+.convocation_details i {
+    font-size: 20px;
+    transform: translateX(250%);
+}
+
+.convocation_details .details_grid {
+    margin-left: 10px;
+}
+
+.details_grid .details_title {
+    line-height: 15px;
+}
+.details_grid .details_subtitle {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.add_content {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: fixed;
+    bottom: 40px;
+    left: 93%;
+    height: 8%;
+    width: 4%;
+    border-radius: 50%;
+    background: rgba(77,77,255,1);
+}
+
+.add_content .fi-rr-plus{
+    top:0;
+    color: white;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.timeline {
+    padding-top: 50px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timeline .post_container {
+    margin-bottom: 60px;
+    display:flow-root
+}
+
+.timeline .post {
+    background: rgba(77,77,255,1);
+    width: 600px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.post .post_content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-inline: 50px;
+    margin: -20px;
+}
+
+.post .post_details {
+    padding-bottom: 8px;
+}
+
+.post.post_image_holder {
+    height: 80%;
+    width: 100%;
+    align-items: center;
+}
+
+.post .post_image{
+   width: 100%;
+   height: 100%;
+   border-radius: 20px;
+}
+
+.post .post_author{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    line-height: 40px;
+}
+
+.post .post_author img {
+    height: 35px;
+    width: 35px;
+    border-radius: 12px;
+    background: red;
+}
+
+.post .post_author .user_title {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.post .post_author .comm_title {
+    font-size: 14px;
+    line-height: 38px;
+    font-style: italic;
+}
+
+.post .post_author .fi-rr-angle-small-right {
+    line-height: 43px;
+}
+
+.post .post_text {
+    margin-top: 10px;
+    background: white;
+    border-radius: 20px;
+}
+
+.post_text p {
+    margin: 5px;
+    padding: 10px;
+}
+
+.reaction_number_container {
+    margin-left: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.reaction_number_container .fi-rs-comment-dots {   
+    margin-left: 30px;
+}
+
+.reaction_number_container p {
+    font-size: 13px;
+    margin-left: 6px;
+}
+
+.reaction_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reaction_container .reaction_bar {
+    bottom: 100px;
+    background: rgb(44, 44, 152);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 20px;
+    width: 180px;
+    height: 40px;
+}
+
+.reaction_bar .reaction_div {
+    margin: 5px;
+    line-height: 10px;
+}
+
+.reaction_div i {
+    font-size: 25px;
+    margin: 10px;
+}
+
+#verified {
+    color: rgb(10, 255, 1);
+    margin-left: 10px;
+    line-height: 43px;
+}

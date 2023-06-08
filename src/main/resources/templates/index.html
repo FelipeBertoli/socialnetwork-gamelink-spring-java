@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="widht=device-widht, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <title>Gamelink</title>
+</head>
+
+<body>
+
+    <div class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+        <div class="logo_details">
+            <div class="logo">
+                <img class="big_logo" src="img/biglogo.png">
+
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fi fi-rr-search"></i>
+                    <input type="text" placeholder="Procurar...">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fi fi-rs-house-chimney"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <i class="fi fi-rr-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fi fi-rs-bells"></i>
+                    <span>Notificações</span>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fi fi-rr-messages"></i>
+                    <span>Conversas</span>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="/games">
+                    <i class="fi fi-rr-gamepad"></i>
+                    <span>Jogos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fi fi-rr-users"></i>
+                    <span>Amigos</span>
+                    <i class="fi fi-rr-angle-small-right"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/community">
+                    <i class="fi fi-rr-users-alt"></i>
+                    <span>Comunidades</span>
+                </a>
+            </li>
+            <li>
+                <a href="/convocation">
+                    <i class="fi fi-rr-fire-flame-curved"></i>
+                    <span>Convocações</span>
+                </a>
+            </li>
+            <li>
+                <a href="/favorites">
+                    <i class="fi fi-rr-bookmark"></i>
+                    <span>Favoritos</span>
+                </a>
+            </li>
+            <li>
+                <a href="/settings">
+                    <i class="fi fi-rs-settings"></i>
+                    <span>Configurações</span>
+                </a>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="/img/btn-profile.png" alt="">
+                    <div class="name_grid">
+                        <div class="name">
+                            <p>Usuario</p>
+                        </div>
+                        <div class="nickname">
+                            <p>Nickname</p>
+                        </div>
+                    </div>
+                    <a href="/">
+                        <i class="fi fi-rs-exit" id="log_out"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <table class="convocation_content">
+        <tr>
+            <th>Convocações</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="convocation_details">
+                    <img src="/img/mk-icon.png" alt="">
+                    <div class="details_grid">
+                        <p class="details_title">Convocação 1</p>
+                        <p class="details_subtitle">Profissional </p>
+                    </div>
+                    <i class="fi fi-rr-arrow-right"></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="convocation_details">
+                    <img src="/img/apex-icon.png" alt="">
+                    <div class="details_grid">
+                        <p class="details_title">Convocação 2</p>
+                        <p class="details_subtitle">Rankeada</p>
+                    </div>
+                    <i class="fi fi-rr-arrow-right"></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="convocation_details">
+                    <img src="/img/val-icon.png" alt="">
+                    <div class="details_grid">
+                        <p class="details_title">Convocação 3</p>
+                        <p class="details_subtitle">Profissional</p>
+                    </div>
+                    <i class="fi fi-rr-arrow-right"></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="convocation_details">
+                    <img src="/img/mine-icon.png" alt="">
+                    <div class="details_grid">
+                        <p class="details_title">Convocação 4</p>
+                        <p class="details_subtitle">Casual</p>
+                    </div>
+                    <i class="fi fi-rr-arrow-right"></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="convocation_details">
+                    <img src="/img/ark-icon.png" alt="">
+                    <div class="details_grid">
+                        <p class="details_title">Convocação 5</p>
+                        <p class="details_subtitle">Dedicado</p>
+                    </div>
+                    <i class="fi fi-rr-arrow-right"></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th> <a href="#"><i class="fi fi-rr-angle-down"></i> </a></th>
+
+
+        </tr>
+    </table>
+
+
+
+    <div class="add_content">
+        <i class="fi fi-rr-plus"></i>
+    </div>
+
+    <div class="timeline" id="timeline">
+        <div class="timeline_content">
+            <div class="post_container">
+                <div class="post">
+                    <div class="post_content">
+
+                        <div class="post_details">
+                            <div class="post_author">
+                                <img src="/img/btn-profile.png" alt="">
+                                <p class="user_title">Usuario</p>
+                                <i class="fi fi-rr-angle-small-right"></i>
+                                <p class="comm_title"> Red Dead Redemption 2 - BR</p>
+                            </div>
+                            <div class="post_text">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo laudantium animi
+                                    tenetur,
+                                    culpa magnam aperiam aut. Laborum, labore fuga odit, repellendus quia magni
+                                    necessitatibus officia quos ut sed illo! Tenetur.</p>
+                            </div>
+                        </div>
+                        <div class="post_image_holder">
+                            <img class="post_image" src="img/post-2.jpg" alt="beach" />
+                        </div>
+                        <div class="reaction_number_container">
+                            <i class="fi fi-rs-social-network"></i>
+                            <p>226</p>
+                            <i class="fi fi-rs-comment-dots"></i>
+                            <p>15</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reaction_container">
+                    <div class="reaction_bar">
+                        <div class="reaction_div">
+                            <i class="fi fi-rs-social-network"></i>
+                            <i class="fi fi-rs-comment-dots"></i>
+                            <i class="fi fi-rr-bookmark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post_container">
+                <div class="post">
+                    <div class="post_content">
+
+                        <div class="post_details">
+                            <div class="post_author">
+                                <img src="/img/btn-profile.png" alt="">
+                                <p class="user_title">Recrutador</p>
+                                <i class="fi fi-rr-angle-small-right"></i>
+                                <p class="comm_title"> Overwatch - E-sports Recruitment 🔹</p>
+                            </div>
+                            <div class="post_text">
+                                <p>Estamos procurando um main suporte para nosso time profissional de e-sports. Nossos
+                                    requisitos é ser do elo diamante para cima e ter disponibilidade para treinar.</p>
+                            </div>
+                        </div>
+                        <div class="reaction_number_container">
+                            <i class="fi fi-rs-social-network"></i>
+                            <p>38</p>
+                            <i class="fi fi-rs-comment-dots"></i>
+                            <p>6</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reaction_container">
+                    <div class="reaction_bar">
+                        <div class="reaction_div">
+                            <i class="fi fi-rs-social-network"></i>
+                            <i class="fi fi-rs-comment-dots"></i>
+                            <i class="fi fi-rr-bookmark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post_container">
+                <div class="post">
+                    <div class="post_content">
+
+                        <div class="post_details">
+                            <div class="post_author">
+                                <img src="/img/btn-profile.png" alt="">
+                                <p class="user_title">League of Legends</p>
+                                <i class="fi fi-rr-angle-small-right"></i>
+                                <p class="comm_title">League of Legends - Official</p>
+                                <i class="fi fi-ss-check-circle" id="verified"></i>
+                            </div>
+                            <div class="post_text">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo laudantium animi
+                                    tenetur,
+                                    culpa magnam aperiam aut. Laborum, labore fuga odit, repellendus quia magni
+                                    necessitatibus officia quos ut sed illo! Tenetur.</p>
+                            </div>
+                        </div>
+                        <div class="post_image_holder">
+                            <img class="post_image" src="img/post-1.jpg" alt="beach" />
+                        </div>
+                        <div class="reaction_number_container">
+                            <i class="fi fi-rs-social-network"></i>
+                            <p>798</p>
+                            <i class="fi fi-rs-comment-dots"></i>
+                            <p>94</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reaction_container">
+                    <div class="reaction_bar">
+                        <div class="reaction_div">
+                            <i class="fi fi-rs-social-network"></i>
+                            <i class="fi fi-rs-comment-dots"></i>
+                            <i class="fi fi-rr-bookmark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
