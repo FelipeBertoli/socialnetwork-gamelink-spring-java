@@ -1,16 +1,17 @@
 package com.project.gamelink.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-
-import com.mysql.cj.util.StringUtils;
 import com.project.gamelink.model.*;
 import com.project.gamelink.repository.*;
+import com.project.gamelink.service.BucketService;
+
 
 @Controller
 @RestController
@@ -20,6 +21,9 @@ public class PostController {
     private UserRepository uRepo;
     @Autowired
     private GenderRepository gRepo;
+    @Autowired
+    private BucketService service;
+
 
     @PostMapping("/registerGender")
     public Gender registerGender(
@@ -33,16 +37,15 @@ public class PostController {
         return gender;
     }
 
-
     @PostMapping("/registerUser")
-    public Object registerUser(
+    public RedirectView registerUser(
             @RequestParam("first_name") String name,
             @RequestParam("last_name") String lastName,
             @RequestParam("nickname") String nickName,
             @RequestParam("birthday") String birthday,
-            @RequestParam("profile_pic") MultipartFile image,
+            @RequestParam("profile_pic") MultipartFile file,
             @RequestParam("email") String email,
-            @RequestParam("password") String password) {
+            @RequestParam("password") String password) throws IOException {
                 System.out.println(birthday);
         User user = new User();
         user.setFirstName(name);
@@ -65,18 +68,12 @@ public class PostController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        String fileName = StringUtils.cl(image.getOriginalFilename());
-        user.setProfilePic(fileName);
-         
-        User savedUser = uRepo.save(user);
- 
-        String uploadDir = "user-photos/" + savedUser.getId();
- 
-        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-
-
+        String path = service.getUrl(file, nickName, birthday);
+        user.setProfilePic(path);
+        service.saveFile(file, nickName, birthday);
         uRepo.save(user);
-        return user;
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("/");
+        return redirectView;
     }
 }

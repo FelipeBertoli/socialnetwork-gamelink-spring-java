@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta name="viewport" content="widht=device-widht, initial-scale=1.0">
@@ -102,7 +102,7 @@
                             <p>Usuario</p>
                         </div>
                         <div class="nickname">
-                            <p>Nickname</p>
+                            <p th:text="${user.email}"></p>
                         </div>
                     </div>
                     <a href="/">
@@ -180,8 +180,6 @@
         </tr>
         <tr>
             <th> <a href="#"><i class="fi fi-rr-angle-down"></i> </a></th>
-
-
         </tr>
     </table>
 

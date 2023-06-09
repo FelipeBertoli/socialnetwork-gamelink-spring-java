@@ -21,7 +21,7 @@
 
     <div class="register_container">
         <div class="register_content">
-            <form action="/registerUser" method="post">
+            <form action="/registerUser" method="post" enctype="multipart/form-data">
                     <h2>PREENCHA SEUS DADOS</h2>
                 <div class="register_group">
                     <p>Insira sua foto de perfil</p>
@@ -46,7 +46,7 @@
                     <p>Insira sua senha</p>
                     <input  name="password" required>
                 </div>
-                    <a href="/"><button class="popup-login" type="login">REGISTRAR-SE</button></a>
+                    <button class="popup-login" type="submit">REGISTRAR-SE</button>
                  
             </form>
             <a href="/"><button class="popup-login" type="login">RETORNAR</button></a>

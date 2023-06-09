@@ -2,9 +2,7 @@ package com.project.gamelink.model;
 
 import jakarta.persistence.*;
 import java.sql.Date;
-
 import org.hibernate.annotations.CreationTimestamp;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -47,8 +45,7 @@ public class User {
     @JoinColumn(name = "gender_id", referencedColumnName = "gender_id")
     private Gender gender;
 
-    @Lob
-    @Column(name = "profile_pic", length = 1000)
+    @Column(name = "profile_pic")
     private String profilePic;
 
     public long getId() {

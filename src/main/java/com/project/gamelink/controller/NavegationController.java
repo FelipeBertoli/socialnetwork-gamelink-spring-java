@@ -23,11 +23,6 @@ public class NavegationController {
         return "register";
     }
 
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
-    }
-
     @RequestMapping("/profile")
     public String profile(){
         return "profile";
