@@ -1,6 +1,5 @@
 package com.project.gamelink.model;
 
-
 import jakarta.persistence.*;
 
 @Entity

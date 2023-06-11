@@ -15,12 +15,14 @@ import com.project.gamelink.service.BucketService;
 
 @Controller
 @RestController
-public class PostController {
+public class RegisterController {
 
     @Autowired
     private UserRepository uRepo;
     @Autowired
-    private GenderRepository gRepo;
+    private GenderRepository genderRepo;
+    @Autowired
+    private GenreRepository genreRepo;
     @Autowired
     private BucketService service;
 
@@ -33,9 +35,21 @@ public class PostController {
         Gender gender = new Gender();
         gender.setGenderId(genderId);
         gender.setGenderTitle(genderTitle);
-        gRepo.save(gender);
+        genderRepo.save(gender);
         return gender;
     }
+
+    
+    @PostMapping("/registerGameGenre")
+    public GameGenre registerGameGenre(
+        @RequestParam("genre_title") String genreTitle
+    ) {
+        GameGenre genre = new GameGenre();
+        genre.setGenreTitle(genreTitle);
+        genreRepo.save(genre);
+        return genre;
+    }
+
 
     @PostMapping("/registerUser")
     public RedirectView registerUser(
@@ -56,7 +70,7 @@ public class PostController {
         user.setAccountStatus("ATIVO");
 
         String genderId = "M";
-        Gender gender = gRepo.findById(genderId).orElse(null);
+        Gender gender = genderRepo.findById(genderId).orElse(null);
         user.setGender(gender);
 
         SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd");
@@ -76,4 +90,5 @@ public class PostController {
         redirectView.setUrl("/");
         return redirectView;
     }
+
 }
