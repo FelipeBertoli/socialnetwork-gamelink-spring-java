@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta name="viewport" content="widht=device-widht, initial-scale=1.0">
     <meta charset="utf-8">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/games-style.css" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+
     <title>Gamelink</title>
 </head>
 
@@ -103,5 +105,21 @@
             </div>
         </div>
     </div>
+
+    <div class="card_grid">
+       <h1>Jogos</h1>
+        <div class="grid">
+            <article th:each="game: ${jogos}">
+                <img th:src="${game.gameImage}" alt="Sample photo">
+                <div class="text">
+                        <p th:text="${game.genre.genreTitle}" class="mini_text">,</p>
+                        <p th:text="${game.genreOp.genreTitle}" class="mini_text" style="margin-left: 20px;"></p>
+                    <h3 th:text="${game.gameTitle}"></h3>
+                        <button>Comunidade Oficial</button>
+                </div>
+            </article>
+        </div>
+    </div>
 </body>
+
 </html>

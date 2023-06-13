@@ -14,7 +14,6 @@ import com.project.gamelink.service.BucketService;
 
 
 @Controller
-@RestController
 public class RegisterController {
 
     @Autowired
@@ -23,6 +22,8 @@ public class RegisterController {
     private GenderRepository genderRepo;
     @Autowired
     private GenreRepository genreRepo;
+    @Autowired
+    private GameRepository gameRepo;
     @Autowired
     private BucketService service;
 
@@ -48,6 +49,28 @@ public class RegisterController {
         genre.setGenreTitle(genreTitle);
         genreRepo.save(genre);
         return genre;
+    }
+
+    @PostMapping("/registerGame")
+    public Games registerGame(
+        @RequestParam("game_title") String gameTitle,
+         @RequestParam("description") String description,
+          @RequestParam("game_image") String gameImage,
+          @RequestParam("genre_id") int genreId,
+          @RequestParam("genre_id_optional") int genreIdOpt
+    ) {
+        Games game = new Games();
+        game.setGameTitle(gameTitle);
+        game.setDescription(description);
+        game.setGameImage(gameImage);
+        GameGenre genre = genreRepo.findById(genreId).orElse(null);
+        game.setGenre(genre);
+        GameGenre genreOpt = genreRepo.findById(genreIdOpt).orElse(null);
+        game.setGenreOp(genreOpt);
+        game.setGameImage(gameImage);
+
+        gameRepo.save(game);
+        return game;
     }
 
 

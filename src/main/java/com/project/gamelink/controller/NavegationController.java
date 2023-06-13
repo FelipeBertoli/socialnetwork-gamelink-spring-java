@@ -28,9 +28,9 @@ public class NavegationController {
         return "profile";
     }
 
-    @RequestMapping("/games")
+    @RequestMapping("/index")
     public String games(){
-        return "games";
+         return "index";
     }
 
     @RequestMapping("/community")
