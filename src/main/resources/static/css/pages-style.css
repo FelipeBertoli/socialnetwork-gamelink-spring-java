@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.card_grid {
+  margin-top: 30px;
+  height: 100%;
+  margin-left: 140px;
+  margin-right: 30px;
+  transition: 300ms ease-in-out;
+}
+
+h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 50px;
+  font-style: oblique;
+  text-shadow: 1px 1px 1px rgba(77, 77, 255, 1), 2px 2px 1px rgba(77, 77, 255, 1);
+}
+
+.card_grid img {
+  width: 100%;
+  height: 250px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 30px;
+  align-items: stretch;
+}
+
+.grid article {
+  position: relative;
+  box-shadow: 20px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  height: 380px;
+  overflow: hidden;
+  background: rgba(77, 77, 255, 1);
+  display: block;
+}
+
+.card_content {
+  height: 50px;
+  padding: 0 20px 20px;
+  margin: 3px;
+  color: white;
+}
+
+.card_text {
+  display: flex;
+}
+
+.grid button {
+  background: gray;
+  border: 0;
+  color: rgba(77, 77, 255, 1);
+  padding: 5px;
+  border-radius: 15px;
+  width: 100%;
+  background: white;
+  transform: translateY(40%);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+.mini_text {
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+  color: black;
+}
+
+.sidebar:hover+.card_grid {
+  margin-left: 400px;
+}
+
+.convocation_container {
+  margin-top: 30px;
+  height: 100%;
+  margin-left: 140px;
+  margin-right: 30px;
+  transition: 300ms ease-in-out;
+}
+
+.convocation_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 30px;
+  align-items: stretch;
+}
+
+.convocation_top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.convocation_top button {
+  height: 40px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin-left: 50px;
+  font-size: 17px;
+  border-radius: 12px;
+  border-style: solid;
+  font-weight: 700;
+}
+
+.convocation_top h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 50px;
+  font-style: oblique;
+  text-shadow: 1px 1px 1px rgba(77, 77, 255, 1), 2px 2px 1px rgba(77, 77, 255, 1);
+  line-height: 50px;
+}
+
+
+.convocation_grid article {
+  position: relative;
+  display: block;
+  color: white;
+  padding-left: 10px;
+  height: 100%;
+  width: 320px;
+  background: rgb(44, 44, 152);
+  border-radius: 10px;
+}
+
+.convocation_block {
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.convocation_grid img {
+  width: 50px;
+  height: 50px;
+}
+
+.convocation_titles {
+  margin-left: 10px;
+}
+
+.convocation_titles .details_title {
+  line-height: 15px;
+  font-size: 15px;
+}
+
+.convocation_titles .details_subtitle {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.convocation_description {
+  margin: 20px;
+  width: 260px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.convocation_description button {
+  background: gray;
+  border: 0;
+  color: rgba(77, 77, 255, 1);
+  padding: 5px;
+  border-radius: 15px;
+  width: 100%;
+  background: white;
+  transform: translateY(40%);
+  font-size: 17px;
+  font-weight: 800;
+}

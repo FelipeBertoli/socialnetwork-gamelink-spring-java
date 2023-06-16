@@ -7,15 +7,15 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/pages-style.css" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
-
     <title>Gamelink</title>
-</head>
 
+</head>
 <body>
 
-    <div class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+    <div class="sidebar">
         <div class="logo_details">
             <div class="logo">
                 <img class="big_logo" src="img/biglogo.png">
@@ -55,7 +55,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="/games">
                     <i class="fi fi-rr-gamepad"></i>
                     <span>Jogos</span>
                 </a>
@@ -70,12 +70,6 @@
                 <a href="/community">
                     <i class="fi fi-rr-users-alt"></i>
                     <span>Comunidades</span>
-                </a>
-            </li>
-            <li>
-                <a href="/convocations">
-                    <i class="fi fi-rr-fire-flame-curved"></i>
-                    <span>Convocações</span>
                 </a>
             </li>
             <li>
@@ -107,28 +101,32 @@
                         <i class="fi fi-rs-exit" id="log_out"></i>
                     </a>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <div class="card_grid">
-       <h1>Jogos</h1>
-        <div class="grid">
-            <article th:each="game: ${jogos}">
-                <img th:src="${game.gameImage}" alt="Sample photo">
-                <div class="card_content">
-                    <div class="card_text">
-                        <p th:text="${game.genre.genreTitle} + ', '" class="mini_text"></p>
-                        <p th:text="${game.genreOp.genreTitle}" class="mini_text" style="margin-left: 5px;"></p>
+    <div class="convocation_container">
+        <div class="convocation_top">
+            <h1>Convocações</h1>
+            <button>Adicionar convocação +</button>
+        </div>
+        
+        <div class="convocation_grid" >
+            <article th:each="convocation: ${convocations}">
+                <div class="convocation_block" >
+                    <img th:src="${convocation.game.gameIcon}" alt="">
+                    <div class="convocation_titles">
+                        <p class="details_title" th:text="${convocation.convocationTitle}"></p>
+                        <p class="details_subtitle" th:text="${convocation.convocationType}"></p>
                     </div>
-                    <h3 th:text="${game.gameTitle}"></h3>
-                    <button>Comunidade Oficial</button>
+                </div>
+                <div class="convocation_description">
+                    <h5 th:text="${#strings.length(convocation.description) > 100 ? #strings.substring(convocation.description, 0, 100) + '...' : convocation.description}"></h5>
+                    <button>Saiba mais</button>
                 </div>
                 
             </article>
         </div>
     </div>
 </body>
-
 </html>

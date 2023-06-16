@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br">
 
 <head>
     <meta name="viewport" content="widht=device-widht, initial-scale=1.0">
     <meta charset="utf-8">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/pages-style.css" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
-
     <title>Gamelink</title>
 </head>
 
@@ -55,7 +53,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="/games">
                     <i class="fi fi-rr-gamepad"></i>
                     <span>Jogos</span>
                 </a>
@@ -73,19 +71,13 @@
                 </a>
             </li>
             <li>
-                <a href="/convocations">
-                    <i class="fi fi-rr-fire-flame-curved"></i>
-                    <span>Convocações</span>
-                </a>
-            </li>
-            <li>
                 <a href="/favorites">
                     <i class="fi fi-rr-bookmark"></i>
                     <span>Favoritos</span>
                 </a>
             </li>
             <li>
-                <a href="/settings">
+                <a href="#">
                     <i class="fi fi-rs-settings"></i>
                     <span>Configurações</span>
                 </a>
@@ -111,24 +103,5 @@
             </div>
         </div>
     </div>
-
-    <div class="card_grid">
-       <h1>Jogos</h1>
-        <div class="grid">
-            <article th:each="game: ${jogos}">
-                <img th:src="${game.gameImage}" alt="Sample photo">
-                <div class="card_content">
-                    <div class="card_text">
-                        <p th:text="${game.genre.genreTitle} + ', '" class="mini_text"></p>
-                        <p th:text="${game.genreOp.genreTitle}" class="mini_text" style="margin-left: 5px;"></p>
-                    </div>
-                    <h3 th:text="${game.gameTitle}"></h3>
-                    <button>Comunidade Oficial</button>
-                </div>
-                
-            </article>
-        </div>
-    </div>
 </body>
-
 </html>

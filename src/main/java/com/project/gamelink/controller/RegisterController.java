@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import com.project.gamelink.model.*;
@@ -19,27 +18,13 @@ public class RegisterController {
     @Autowired
     private UserRepository uRepo;
     @Autowired
-    private GenderRepository genderRepo;
-    @Autowired
     private GenreRepository genreRepo;
     @Autowired
     private GameRepository gameRepo;
     @Autowired
+    private ConvocationRepository cRepo;
+    @Autowired
     private BucketService service;
-
-
-    @PostMapping("/registerGender")
-    public Gender registerGender(
-        @RequestParam("gender_id") String genderId,
-        @RequestParam("gender_title") String genderTitle
-    ) {
-        Gender gender = new Gender();
-        gender.setGenderId(genderId);
-        gender.setGenderTitle(genderTitle);
-        genderRepo.save(gender);
-        return gender;
-    }
-
     
     @PostMapping("/registerGameGenre")
     public GameGenre registerGameGenre(
@@ -52,17 +37,20 @@ public class RegisterController {
     }
 
     @PostMapping("/registerGame")
-    public Games registerGame(
+    public Game registerGame(
         @RequestParam("game_title") String gameTitle,
-         @RequestParam("description") String description,
-          @RequestParam("game_image") String gameImage,
-          @RequestParam("genre_id") int genreId,
-          @RequestParam("genre_id_optional") int genreIdOpt
+        @RequestParam("description") String description,
+        @RequestParam("game_image") String gameImage,
+        @RequestParam("game_icon") String gameIcon,
+        @RequestParam("genre_id") int genreId,
+        @RequestParam("genre_id_optional") int genreIdOpt
     ) {
-        Games game = new Games();
+        Game game = new Game();
+        
         game.setGameTitle(gameTitle);
         game.setDescription(description);
         game.setGameImage(gameImage);
+        game.setGameIcon(gameIcon);
         GameGenre genre = genreRepo.findById(genreId).orElse(null);
         game.setGenre(genre);
         GameGenre genreOpt = genreRepo.findById(genreIdOpt).orElse(null);
@@ -73,6 +61,25 @@ public class RegisterController {
         return game;
     }
 
+    @PostMapping("/registerConvocation")
+    public Object RegisterConvocation(
+            @RequestParam("convocation_title") String title,
+            @RequestParam("convocation_type") String type,
+            @RequestParam("description") String description,
+            @RequestParam("author_id") Long authorId,
+            @RequestParam("game_id") int gameId
+    ){
+        Convocation convocation = new Convocation();
+        User user = uRepo.findById(authorId).orElse(null);
+        Game game = gameRepo.findById(gameId).orElse(null);
+        convocation.setConvocationTitle(title);
+        convocation.setConvocationType(type);
+        convocation.setDescription(description);
+        convocation.setUser(user);
+        convocation.setGame(game);
+        cRepo.save(convocation);
+        return convocation;
+    }
 
     @PostMapping("/registerUser")
     public RedirectView registerUser(
@@ -92,10 +99,6 @@ public class RegisterController {
         user.setPassword(password);
         user.setAccountStatus("ATIVO");
 
-        String genderId = "M";
-        Gender gender = genderRepo.findById(genderId).orElse(null);
-        user.setGender(gender);
-
         SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd");
         java.util.Date dataUtil;
         try {
@@ -105,13 +108,13 @@ public class RegisterController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         String path = service.getUrl(file, nickName, birthday);
         user.setProfilePic(path);
         service.saveFile(file, nickName, birthday);
         uRepo.save(user);
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/");
+        redirectView.setUrl("success");
         return redirectView;
     }
-
 }

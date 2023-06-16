@@ -23,24 +23,20 @@ public class NavegationController {
         return "register";
     }
 
+     @RequestMapping("/success")
+    public String success() {
+        return "success";
+    }
+
+
     @RequestMapping("/profile")
     public String profile(){
         return "profile";
     }
 
-    @RequestMapping("/index")
-    public String games(){
-         return "index";
-    }
-
     @RequestMapping("/community")
     public String community(){
         return "community";
-    }
-
-    @RequestMapping("/convocations")
-    public String convocation(){
-        return "Em manutenção";
     }
 
     @RequestMapping("/favorites")

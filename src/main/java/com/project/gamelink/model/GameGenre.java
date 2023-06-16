@@ -29,6 +29,4 @@ public class GameGenre {
     public void setGenreTitle(String genreTitle) {
         this.genreTitle = genreTitle;
     }
-
-    
 }

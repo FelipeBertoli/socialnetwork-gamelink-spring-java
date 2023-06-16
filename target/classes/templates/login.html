@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scale=1.0">
+    <meta charset="utf-8">
+    <link href="css/login-style.css" rel="stylesheet">
+    <title>Gamelink</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-top">
+            <img class="tiny-logo" align="left" src="img/tinylogo.png">
+            <div class="nav-text">
+                <a class="menu-text" href="">SAIBA MAIS</a>
+                <a class="menu-text" href="">SOBRE NÓS</a>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container-login">
+            <img class="big-logo" src="img/biglogo.png">
+            <h1 class="grid-item">Lorem ipsum dolor sit amet.</h1>
+            <button class="login-button" type="login" onclick="openPopup()">FAÇA LOGIN</button>
+
+            <div class="login-popup" id="popup">
+                <form action="/login" method="post">
+                    <div class="popup-group">
+                        <i class="fi fi-rr-rectangle-xmark"></i>
+                    </div>
+                    <div class="popup-group">
+                        <a class="main-text ">Email</a>
+                        <input type="popup-email" placeholder="email" name="email">
+                    </div>
+                    <div class="popup-group">
+                        <a class="main-text">Senha</a>
+                        <input type="password" placeholder="password" name="password">
+                    </div>
+                    <button class="popup-login" type="submit">ENTRAR</button>
+                </form>
+                <a href="/register"><button class="popup-login">REGISTRAR-SE</button></a>
+                <button class="popup-login" onclick="closePopup()">FECHAR</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup")
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup")
+        }
+
+    </script>
+</body>
+
+</html>

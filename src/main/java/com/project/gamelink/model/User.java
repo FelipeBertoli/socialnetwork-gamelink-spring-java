@@ -41,10 +41,6 @@ public class User {
     @CreationTimestamp
     private Date dateCreated;
 
-    @ManyToOne
-    @JoinColumn(name = "gender_id", referencedColumnName = "gender_id")
-    private Gender gender;
-
     @Column(name = "profile_pic")
     private String profilePic;
 
@@ -118,14 +114,6 @@ public class User {
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
     }
 
     public String getProfilePic() {
