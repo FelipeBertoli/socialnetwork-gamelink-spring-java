@@ -13,6 +13,7 @@
     <title>Gamelink</title>
 
 </head>
+
 <body>
 
     <div class="sidebar">
@@ -36,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="/profile">
+                <a href="#">
                     <i class="fi fi-rr-user"></i>
                     <span>Perfil</span>
                 </a>
@@ -45,12 +46,14 @@
                 <a href="#">
                     <i class="fi fi-rs-bells"></i>
                     <span>Notificações</span>
+                    <i class="fi fi-rr-angle-small-right"></i>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <i class="fi fi-rr-messages"></i>
                     <span>Conversas</span>
+                    <i class="fi fi-rr-angle-small-right"></i>
                 </a>
             </li>
 
@@ -64,22 +67,29 @@
                 <a href="#">
                     <i class="fi fi-rr-users"></i>
                     <span>Amigos</span>
+                    <i class="fi fi-rr-angle-small-right"></i>
                 </a>
             </li>
             <li>
-                <a href="/community">
+                <a href="#">
                     <i class="fi fi-rr-users-alt"></i>
                     <span>Comunidades</span>
                 </a>
             </li>
             <li>
-                <a href="/favorites">
+                <a href="#">
+                    <i class="fi fi-rr-fire-flame-curved"></i>
+                    <span>Convocações</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
                     <i class="fi fi-rr-bookmark"></i>
                     <span>Favoritos</span>
                 </a>
             </li>
             <li>
-                <a href="/settings">
+                <a href="#">
                     <i class="fi fi-rs-settings"></i>
                     <span>Configurações</span>
                 </a>
@@ -97,7 +107,7 @@
                             <p>Nickname</p>
                         </div>
                     </div>
-                    <a href="login.html">
+                    <a href="/">
                         <i class="fi fi-rs-exit" id="log_out"></i>
                     </a>
                 </div>
@@ -108,12 +118,11 @@
     <div class="convocation_container">
         <div class="convocation_top">
             <h1>Convocações</h1>
-            <button>Adicionar convocação +</button>
+            <button type="submit" onclick="openPopup()">Criar convocação +</button>
         </div>
-        
-        <div class="convocation_grid" >
+        <div class="convocation_grid">
             <article th:each="convocation: ${convocations}">
-                <div class="convocation_block" >
+                <div class="convocation_block">
                     <img th:src="${convocation.game.gameIcon}" alt="">
                     <div class="convocation_titles">
                         <p class="details_title" th:text="${convocation.convocationTitle}"></p>
@@ -121,12 +130,64 @@
                     </div>
                 </div>
                 <div class="convocation_description">
-                    <h5 th:text="${#strings.length(convocation.description) > 100 ? #strings.substring(convocation.description, 0, 100) + '...' : convocation.description}"></h5>
-                    <button>Saiba mais</button>
+                    <h5
+                        th:text="${#strings.length(convocation.description) > 100 ? #strings.substring(convocation.description, 0, 100) + '...' : convocation.description}">
+                    </h5>
+                    <button type="submit">Saiba mais</button>
                 </div>
-                
             </article>
         </div>
+
+        <div class="convocation_popup" id="popup">
+            <div class="convocation_exit">
+                <i class="fi fi-rr-rectangle-xmark" onclick="closePopup()"></i>
+            </div>
+            <form action="/registerConvocation" method="post">
+                <div class="popup_container">
+                    <a>Jogo</a>
+                    <select name="game_id" required>
+                        <option value=""></option>
+                        <th:block th:each="game : ${games}">
+                            <option th:value="${game.gameId}" th:text="${game.gameTitle}"></option>
+                        </th:block>
+                    </select>
+                </div>
+                    <div class="popup_container">
+                        <a>Tipo de Convocação</a>
+                        <select name="convocation_type" required>
+                            <option value=""></option>
+                            <option value="Casual">Casual</option>
+                            <option value="Competitivo">Competitivo</option>
+                            <option value="Dedicado">Dedicado</option>
+                            <option value="Profissional">Profissional</option>
+                        </select>
+                    </div>
+                    <div class="popup_container">
+                        <a>Título</a>
+                        <input name="convocation_title" required>
+                    </div>
+                    <div class="popup_container">
+                        <div class="popup_text">
+                            <textarea class="popup_description" rows="10" cols="50" name="description"></textarea>
+                        </div>
+                    </div>
+                    <button class="popup-login" type="submit">ENVIAR</button>
+            </form>
+        </div>
     </div>
+
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup")
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup")
+        }
+
+    </script>
 </body>
+
 </html>

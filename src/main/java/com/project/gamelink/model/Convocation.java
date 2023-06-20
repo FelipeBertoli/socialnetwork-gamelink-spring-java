@@ -20,9 +20,9 @@ public class Convocation {
     @Column(name = "description", nullable = false, columnDefinition = "LONGTEXT")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id", referencedColumnName = "user_id")
-    private User user;
+    // @ManyToOne
+    // @JoinColumn(name = "author_id", referencedColumnName = "user_id")
+    // private User user;
 
     @ManyToOne
     @JoinColumn(name = "game_id", referencedColumnName = "game_id")
@@ -60,13 +60,13 @@ public class Convocation {
         this.description = description;
     }
 
-    public User getUser() {
-        return user;
-    }
+    // public User getUser() {
+    //     return user;
+    // }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    // public void setUser(User user) {
+    //     this.user = user;
+    // }
 
     public Game getGame() {
         return game;

@@ -62,23 +62,25 @@ public class RegisterController {
     }
 
     @PostMapping("/registerConvocation")
-    public Object RegisterConvocation(
+    public RedirectView RegisterConvocation(
             @RequestParam("convocation_title") String title,
             @RequestParam("convocation_type") String type,
             @RequestParam("description") String description,
-            @RequestParam("author_id") Long authorId,
+            // @RequestParam("author_id") Long authorId,
             @RequestParam("game_id") int gameId
     ){
         Convocation convocation = new Convocation();
-        User user = uRepo.findById(authorId).orElse(null);
+        // User user = uRepo.findById(authorId).orElse(null);
         Game game = gameRepo.findById(gameId).orElse(null);
         convocation.setConvocationTitle(title);
         convocation.setConvocationType(type);
         convocation.setDescription(description);
-        convocation.setUser(user);
+        // convocation.setUser(user);
         convocation.setGame(game);
         cRepo.save(convocation);
-        return convocation;
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("convocations");
+        return redirectView;
     }
 
     @PostMapping("/registerUser")

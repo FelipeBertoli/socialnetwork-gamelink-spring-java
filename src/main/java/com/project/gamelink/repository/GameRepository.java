@@ -8,6 +8,9 @@ import com.project.gamelink.model.Game;
 public interface GameRepository extends JpaRepository<Game, Integer>{
     @Query(value="select * from games order by game_title", nativeQuery = true)
     List<Game> getAll();
+
+    @Query(value="select game_id, game_title from games order by game_title", nativeQuery = true)
+    List<Game> getGameNames();
     
     <Entity extends Game> Entity save(Entity entity);
 }
