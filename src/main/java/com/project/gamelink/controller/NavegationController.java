@@ -28,16 +28,15 @@ public class NavegationController {
         return "register";
     }
 
-    @RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
     @PostMapping("/login")
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
         User user = uRepo.Login(email, password);
 
         if (user != null) {
             if (password.equals(user.getPassword()) && email.equals(user.getEmail())) {
-                model.addAttribute("convocations", cRepo.findLastFive());
-                model.addAttribute("convocations", cRepo.findLastFive());
-                return "index";
+                System.out.println(user.getFirstName());
+                model.addAttribute("nickName", user.getNickName());
+                return "redirect:/index";
             }
         }
         return "erro-não-preenchido";
