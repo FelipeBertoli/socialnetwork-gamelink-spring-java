@@ -1,4 +1,4 @@
-# Rede Social Gamelink - Spring Boot & Java
+# Rede Social Gamelink
 
 Este projeto é uma rede social fictícia voltada ao universo gamer, desenvolvida com Spring Boot e Java. A aplicação permite interações entre usuários, como criação de posts, gerenciamento de perfis e navegação pelo feed.
 
